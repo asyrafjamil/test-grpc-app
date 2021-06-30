@@ -1,6 +1,6 @@
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
-const PROTO_PATH = './news.proto';
+const PROTO_PATH = './nano.proto';
 
 const options = {
   keepCase: true,
@@ -12,9 +12,9 @@ const options = {
 
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, options);
 
-const NewsService = grpc.loadPackageDefinition(packageDefinition).NewsService;
+const NanoService = grpc.loadPackageDefinition(packageDefinition).NanoService;
 
-const client = new NewsService(
+const client = new NanoService(
     'localhost:50051',
     grpc.credentials.createInsecure(),
 );

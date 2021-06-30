@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+service NanoService {
+    rpc checkHealth (Empty) returns (ApiHealthReply) {}
+}
+
+message ApiHealthReply {
+    string status = 1;
+    string message = 2;
+}
+
+message Empty {}
