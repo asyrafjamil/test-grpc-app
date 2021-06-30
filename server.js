@@ -1,5 +1,5 @@
 const grpc = require('@grpc/grpc-js');
-const PROTO_PATH = './nano.proto';
+const PROTO_PATH = './proto/nano.proto';
 const protoLoader = require('@grpc/proto-loader');
 
 const options = {
