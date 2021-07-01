@@ -1,6 +1,6 @@
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
-const PROTO_PATH = './proto/nano.proto';
+const PROTO_PATH = './proto/jardis.proto';
 
 const options = {
   keepCase: true,
@@ -12,9 +12,10 @@ const options = {
 
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, options);
 
-const NanoService = grpc.loadPackageDefinition(packageDefinition).NanoService;
+const JardisService = grpc.
+    loadPackageDefinition(packageDefinition).JardisService;
 
-const client = new NanoService(
+const client = new JardisService(
     'localhost:50051',
     grpc.credentials.createInsecure(),
 );
