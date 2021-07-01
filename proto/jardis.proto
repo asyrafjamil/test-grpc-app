@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+service JardisService {
+    rpc checkHealth (Empty) returns (ApiHealthReply) {}
+    rpc getSize(sizingEngineRequest) returns (sizingEngineResponse) {}
+    rpc getImageIndex (stream caryaRequest) returns (caryaResponse) {}
+}
+
+message ApiHealthReply {
+    string status = 1;
+    string message = 2;
+}
+
+message caryaRequest {
+    bytes image = 1;
+}
+
+message caryaResponse {
+    string index = 1;
+}
+
+message sizingEngineRequest {
+    string bodyShape = 1;
+    string skinTone = 2;
+    string height = 3;
+    string weight = 4;
+    string productType = 5;
+    string category = 6;
+    string style = 7;
+    string brand = 8;
+    string sizeType = 9;
+}
+
+message sizingEngineResponse {
+    string size = 1;
+}
+
+message Empty {}
