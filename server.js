@@ -1,5 +1,5 @@
 const grpc = require('@grpc/grpc-js');
-const PROTO_PATH = './proto/nano.proto';
+const PROTO_PATH = './proto/jardis.proto';
 const protoLoader = require('@grpc/proto-loader');
 
 const options = {
@@ -14,9 +14,15 @@ const proto = grpc.loadPackageDefinition(packageDefinition);
 
 const server = new grpc.Server();
 
-server.addService(proto.NanoService.service, {
+server.addService(proto.JardisService.service, {
   checkHealth: (_, callback) => {
-    callback(null, {status: 'success', message: 'API is healthy'});
+    callback(null, {status: 'success', message: 'J.A.R.D.I.S is healthy'});
+  },
+  getSize: (_, callback) => {
+    callback(null, {size: 'S'});
+  },
+  getImageIndex: (_, callback) => {
+    callback(null, {index: 5});
   },
 });
 
